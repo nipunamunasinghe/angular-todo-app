@@ -1,0 +1,33 @@
+<div class="todos">
+    <form (submit)="addTodo()">
+        <input
+            type="text"
+            name="inputTodo"
+            placeholder="Type your Todo here..."
+            class="todo-input"
+            [(ngModel)]="inputTodo"
+        />
+        <input type="submit" value="Add Todo" class="todo-submit"/>
+    </form>
+<div *ngFor="let todo of todos; let i = index;" class="todo {{ (todo.completed ? 'done' : '') }}">
+    <div class="id">{{ i }}</div>
+    <div class="content" (click)="toggleDone(i)">{{ todo.content}}</div>
+    <button class="delete" 
+    
+    style="
+    background-color: #FF3636;
+    border: none;
+    color: white;
+    padding: 5px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 8px;
+    "
+    
+    (click)="deleteTodo(i)">Remove</button>
+</div>
+
+<h3>Developed by Nipuna Munasinghe </h3>
+</div>  
